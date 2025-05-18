@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Haberes AMET</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    select, button { width: 100%; padding: 10px; margin-top: 10px; }
+    .result { margin-top: 20px; font-weight: bold; font-size: 18px; color: #004aad; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Calculadora de Haberes AMET</h2>
+    <label for="cargo">Cargo:</label>
+    <select id="cargo">
+      <option value="20000">Profesor</option>
+      <option value="25000">Preceptor</option>
+      <option value="30000">Director</option>
+    </select>
+
+    <label for="zona">Zona:</label>
+    <select id="zona">
+      <option value="0">Sin zona</option>
+      <option value="0.10">Zona 10%</option>
+      <option value="0.20">Zona 20%</option>
+    </select>
+
+    <label for="antiguedad">Antigüedad:</label>
+    <select id="antiguedad">
+      <option value="0">Sin antigüedad</option>
+      <option value="0.10">10%</option>
+      <option value="0.20">20%</option>
+      <option value="0.30">30%</option>
+    </select>
+
+    <button onclick="calcular()">Calcular</button>
+    <div class="result" id="resultado"></div>
+  </div>
+
+  <script>
+    function calcular() {
+      let cargo = parseFloat(document.getElementById("cargo").value);
+      let zona = parseFloat(document.getElementById("zona").value);
+      let antiguedad = parseFloat(document.getElementById("antiguedad").value);
+
+      let resultado = cargo + (cargo * zona) + (cargo * antiguedad);
+      document.getElementById("resultado").innerText = "Total estimado: $" + resultado.toFixed(2);
+    }
+  </script>
+</body>
+</html>
